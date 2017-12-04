@@ -1,0 +1,5 @@
+<ng-container *ngFor="let row of cells; index as y; ">
+  <ng-container *ngFor="let cell of row; index as x">
+    <app-cell *ngIf="cell" [type]="cell" [x]="x" [y]="y"></app-cell>
+  </ng-container>
+</ng-container>

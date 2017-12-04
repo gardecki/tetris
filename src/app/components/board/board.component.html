@@ -1,0 +1,8 @@
+<ng-container *ngFor="let row of cells; trackBy: trackByIndexFn; index as y;">
+  <ng-container *ngFor="let cell of row; trackBy: trackByIndexFn; index as x">
+    <app-cell *ngIf="cell" [type]="cell" [x]="x" [y]="y"
+              [attr.full]="fullLines[y] ? true : false"
+              [attr.above-full]="aboveFullLines[y]">
+    </app-cell>
+  </ng-container>
+</ng-container>

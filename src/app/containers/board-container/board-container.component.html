@@ -1,0 +1,3 @@
+<app-tetromino [cells]="tetromino.cells" [x]="tetromino.x" [y]="tetromino.y"></app-tetromino>
+<app-board [cells]="board$ | async" (clearLines)="bs.clearLines($event)"></app-board>
+<button (click)="tetromino.rotateRight()">Rotate</button>

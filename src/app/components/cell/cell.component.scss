@@ -1,0 +1,28 @@
+//Pairs of (type, color)
+$colors: (I, #46d7d7),
+  (O, #f7f00f),
+  (T, #b83ebb),
+  (S, #3ce22f),
+  (Z, #dc3232),
+  (J, #3334cc),
+  (L, #febc01);
+
+$bs: 10px;
+
+:host {
+  position: absolute;
+  display: block;
+  z-index: 10;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.2), inset -2px -2px 1px rgba(0, 0, 0, 0.1);
+
+  @each $type, $color in $colors {
+    &.#{$type} {
+      background: $color;
+      box-shadow: inset #{$bs} #{$bs} #{$bs} -#{$bs} rgba(lighten($color, 50%), 0.8), inset -#{$bs} -#{$bs} #{$bs} -#{$bs} rgba(darken($color, 30%), 0.5);
+    }
+  }
+}
+
