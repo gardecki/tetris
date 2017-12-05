@@ -1,20 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GridComponent } from './tetromino.component';
+import { TetrominoComponent } from './tetromino.component';
+import { CellComponent } from '../cell/cell.component';
 
-describe('GridComponent', () => {
-  let component: GridComponent;
-  let fixture: ComponentFixture<GridComponent>;
+describe('TetrominoComponent', () => {
+  let component: TetrominoComponent;
+  let fixture: ComponentFixture<TetrominoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GridComponent ]
+      declarations: [ TetrominoComponent, CellComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GridComponent);
+    fixture = TestBed.createComponent(TetrominoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

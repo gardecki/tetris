@@ -1,5 +1,5 @@
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
-import { Grid } from '../../interfaces/grid';
+import { IGrid } from '../../interfaces/grid';
 
 @Component({
   selector: 'app-tetromino',
@@ -20,7 +20,7 @@ export class TetrominoComponent implements OnInit {
     return this.cellSize * this.x;
   }
 
-  @Input() cells: Grid;
+  @Input() cells: IGrid;
   @Input() x = 0;
   @Input() y = 0;
 

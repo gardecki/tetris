@@ -2,18 +2,18 @@ import { Injectable } from '@angular/core';
 import { Cell } from '../interfaces/cell';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
-import { Grid } from '../interfaces/grid';
+import { IGrid } from '../interfaces/grid';
 
 @Injectable()
 export class BoardService {
 
-  private cellsSubject: BehaviorSubject<Grid>;
-  private cells$: Observable<Grid>;
+  private cellsSubject: BehaviorSubject<IGrid>;
+  private cells$: Observable<IGrid>;
   private width = 10;
   private height = 20;
 
   constructor() {
-    this.cellsSubject = new BehaviorSubject<Grid>(this.getEmptyCells());
+    this.cellsSubject = new BehaviorSubject<IGrid>(this.getEmptyCells());
     this.cells$ = this.cellsSubject.asObservable();
   }
 
@@ -21,7 +21,7 @@ export class BoardService {
     return this.cellsSubject.getValue();
   }
 
-  getCells$(): Observable<Grid> {
+  getCells$(): Observable<IGrid> {
     return this.cells$;
   }
 
@@ -55,7 +55,7 @@ export class BoardService {
     return result;
   }
 
-  getEmptyCells(): Grid {
+  getEmptyCells(): IGrid {
     return [
       this.getEmptyRow(),
       this.getEmptyRow(),

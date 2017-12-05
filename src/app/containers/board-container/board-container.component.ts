@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Cell } from '../../interfaces/cell';
 import { BoardService } from '../../services/board.service';
-import { Grid } from '../../interfaces/grid';
+import { IGrid } from '../../interfaces/grid';
 import { Tetromino } from '../../classes/tetromino';
+import { TetrominoService } from '../../services/tetromino.service';
 
 @Component({
   selector: 'app-board-container',
@@ -12,10 +12,11 @@ import { Tetromino } from '../../classes/tetromino';
 })
 export class BoardContainerComponent {
 
-  board$: Observable<Grid>;
-  tetromino: Tetromino = new Tetromino();
+  board$: Observable<IGrid>;
+  tetromino$: Observable<Tetromino>;
 
-  constructor(private bs: BoardService) {
+  constructor(private bs: BoardService, private ts: TetrominoService) {
     this.board$ = bs.getCells$();
+    this.tetromino$ = ts.getTetromino$()
   }
 }

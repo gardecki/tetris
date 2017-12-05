@@ -33,7 +33,7 @@ export class CellComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(this.x, this.y, changes);
+    //console.log(this.x, this.y, changes);
   }
 
 }

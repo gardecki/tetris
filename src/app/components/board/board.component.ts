@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 import { Cell } from '../../interfaces/cell';
 import { animate, group, keyframes, query, stagger, state, style, transition, trigger } from '@angular/animations';
-import { Grid } from '../../interfaces/grid';
+import { IGrid } from '../../interfaces/grid';
 
 @Component({
   selector: 'app-board',
@@ -50,7 +50,7 @@ import { Grid } from '../../interfaces/grid';
 })
 export class BoardComponent implements OnChanges {
 
-  @Input() cells: Grid;
+  @Input() cells: IGrid;
   private fullLines = {};
   private aboveFullLines = {};
 
@@ -74,7 +74,7 @@ export class BoardComponent implements OnChanges {
     this.setLinesAboveFull();
   }
 
-  setFullLines(cells: Grid) {
+  setFullLines(cells: IGrid) {
     this.fullLines = cells.reduce((result, row, rowIndex) => {
       if (!row.includes(null)) {
         result[rowIndex] = true;

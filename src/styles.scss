@@ -5,10 +5,13 @@ body, html {
   overflow: hidden;
 }
 
+$side: #435864;
+$center: #41525b;
+
 body {
   background: rgb(37,141,200); /* Old browsers */
-  background: -moz-linear-gradient(left, rgba(37,141,200,1) 0%, rgba(113,168,196,1) 50%, rgba(37,141,200,1) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, rgba(37,141,200,1) 0%,rgba(113,168,196,1) 50%,rgba(37,141,200,1) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, rgba(37,141,200,1) 0%,rgba(113,168,196,1) 50%,rgba(37,141,200,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -moz-linear-gradient(left, $side 0%, $center 50%, $side 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, $side 0%,$center 50%,$side 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, $side 0%,$center 50%,$side 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#258dc8', endColorstr='#258dc8',GradientType=1 ); /* IE6-9 */
 }

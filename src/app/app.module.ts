@@ -7,6 +7,8 @@ import { BoardComponent } from './components/board/board.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BoardService } from './services/board.service';
 import { BoardContainerComponent } from './containers/board-container/board-container.component';
+import { TetrominoService } from './services/tetromino.service';
+import { TetrominoBagService } from './services/tetromino-bag.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,11 @@ import { BoardContainerComponent } from './containers/board-container/board-cont
     BrowserModule,
     BrowserAnimationsModule
   ],
-  providers: [BoardService],
+  providers: [
+    BoardService,
+    TetrominoService,
+    TetrominoBagService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
