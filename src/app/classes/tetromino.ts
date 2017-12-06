@@ -24,6 +24,11 @@ export class Tetromino {
     this.wallKicks = wallKicks;
   }
 
+  move(direction: IPoint) {
+    this.x += direction.x;
+    this.y += direction.y;
+  }
+
   rotateRight() {
     this.rotation = (this.rotation + 1) % this.rotations.length;
   }

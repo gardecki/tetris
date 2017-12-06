@@ -9,6 +9,8 @@ import { BoardService } from './services/board.service';
 import { BoardContainerComponent } from './containers/board-container/board-container.component';
 import { TetrominoService } from './services/tetromino.service';
 import { TetrominoBagService } from './services/tetromino-bag.service';
+import { ControlsService } from './services/controls.service';
+import { CollisionService } from './services/collision.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { TetrominoBagService } from './services/tetromino-bag.service';
   providers: [
     BoardService,
     TetrominoService,
-    TetrominoBagService
+    TetrominoBagService,
+    ControlsService,
+    CollisionService
   ],
   bootstrap: [AppComponent]
 })

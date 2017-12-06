@@ -1,6 +1,7 @@
 <button (click)="ts.next()">Next</button>
+<button *ngIf="tetromino$ | async as tetromino" (click)="tetromino.rotateRight()">Rotate</button>
 <ng-container *ngIf="tetromino$ | async as tetromino">
-  <button (click)="tetromino.rotateRight()">Rotate</button>
+
   <app-tetromino [cells]="tetromino.cells"
                  [x]="tetromino.x"
                  [y]="tetromino.y">

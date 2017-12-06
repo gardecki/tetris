@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { BoardService } from './services/board.service';
+import { ControlsService } from './services/controls.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,12 @@ import { BoardService } from './services/board.service';
 })
 export class AppComponent {
 
-  constructor(private bs: BoardService) {
+  @HostListener('window:keydown', ['$event'])
+  onKeyPress($event) {
+    this.cs.onKeyPress($event);
+  }
+
+  constructor(private cs: ControlsService, private bs: BoardService) {
   }
 
 
