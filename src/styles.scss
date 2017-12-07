@@ -1,8 +1,19 @@
-body, html {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  height: 100%;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  display: block;
+}
+
+body {
+  display: block;
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  box-sizing: border-box;
+  min-height: 100vh;
   width: 100%;
   overflow: hidden;
 }
@@ -10,7 +21,7 @@ $side: #7eb2d0;
 $center: #89bde2;
 
 body {
-  display: block;
+
   background: rgb(37,141,200); /* Old browsers */
   background: -moz-linear-gradient(left, $side 0%, $center 50%, $side 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(left, $side 0%,$center 50%,$side 100%); /* Chrome10-25,Safari5.1-6 */

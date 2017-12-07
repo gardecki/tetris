@@ -11,7 +11,9 @@ export class ControlsService {
   }
 
   onKeyPress($event: KeyboardEvent) {
-    //$event.preventDefault();
+    if ([32, 37, 38, 39, 40].indexOf($event.keyCode) > -1) {
+      $event.preventDefault();
+    }
     if (this.ts.tetromino) {
       switch ($event.code) {
         case 'ArrowUp' :
@@ -26,7 +28,18 @@ export class ControlsService {
         case 'ArrowRight':
           this.moveTetromino({x: 1, y: 0});
           break;
+        case 'Space':
+          this.rotateTetromino(1);
+          break;
       }
+    }
+  }
+
+  private rotateTetromino(direction: (-1 | 1)) {
+    const moveVector = this.cs.rotationMove(direction, this.ts.tetromino, this.bs.cells);
+    if (moveVector) {
+      this.ts.tetromino.rotate(direction);
+      this.ts.tetromino.move(moveVector);
     }
   }
 

@@ -4,9 +4,9 @@ import { IPoint } from '../interfaces/point';
 
 export class Tetromino {
   private rotations: IGrid[];
-  private rotation: number;
+  rotation: number;
   type: Cell;
-  wallKicks: IPoint[][][];
+  wallKicks: IPoint[][];
   x: number;
   y: number;
 
@@ -14,7 +14,7 @@ export class Tetromino {
     return this.rotations[this.rotation];
   }
 
-  constructor(type: Cell, grid: (0 | 1)[][], wallKicks: IPoint[][][] = null) {
+  constructor(type: Cell, grid: (0 | 1)[][], wallKicks: IPoint[][] = null) {
     const spawnPosition = this.getSpawnPosition(grid);
     this.rotations = this.getRotations(type, grid);
     this.rotation = 0;
@@ -27,6 +27,26 @@ export class Tetromino {
   move(direction: IPoint) {
     this.x += direction.x;
     this.y += direction.y;
+  }
+
+  rotate(direction: (-1 | 1)) {
+    this.rotation = this.targetRotation(direction);
+  }
+
+  targetRotationGrid(direction: (-1 | 1)): IGrid {
+    return this.rotations[this.targetRotation(direction)];
+  }
+
+  targetRotation(direction: (-1 | 1)): number {
+    return direction === -1 ? this.prevRotation() : this.nextRotation();
+  }
+
+  nextRotation() {
+    return (this.rotation + 1) % this.rotations.length;
+  }
+
+  prevRotation() {
+    return this.rotation === 0 ? this.rotations.length - 1 : this.rotation - 1;
   }
 
   rotateRight() {
